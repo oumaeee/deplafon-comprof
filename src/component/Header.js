@@ -25,8 +25,13 @@ function Header() {
   };
 
   return (
-    <AppBar position="fixed" color="inherit">
-      <Container maxWidth="xl" xs={{ backgroungColor: "black" }}>
+    <AppBar
+      position="fixed"
+      color="inherit"
+      elevation={0}
+      sx={{ bgcolor: "transparent" }}
+    >
+      <Container>
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: "flex", mr: 1 }} />
           <Typography
@@ -109,6 +114,17 @@ function Header() {
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
+              <Button
+                variant="contained"
+                size="small"
+                sx={{
+                  my: 2,
+                  mx: 1,
+                  display: "block",
+                }}
+              >
+                ORDER NOW
+              </Button>
             </Menu>
           </Box>
         </Toolbar>
