@@ -6,14 +6,17 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { Container } from "@mui/system";
-const carouselItems = ["fruit", "city", "home", "food"];
+const carouselItems = ["plafon", "vinyl", "interior", "wall"];
 const Home = () => {
   return (
     <Box
       position="relative"
       width="inherit"
       maxHeight="100vh"
-      sx={{ height: { md: "100vh", sm: "80vh" }, maxHeight: "1000px" }}
+      sx={{
+        height: { md: "100vh", sm: "80vh" },
+        maxHeight: "1000px",
+      }}
     >
       <Container
         sx={{
@@ -32,7 +35,7 @@ const Home = () => {
             height: { sm: "100%" },
             textAlign: { sm: "start", xs: "center" },
             alignItems: { sm: "start", xs: "center" },
-            pt: { md: 0, sm: 5 },
+            py: { md: 0, xs: 5 },
           }}
           display="flex"
           flexDirection="column"
@@ -65,9 +68,8 @@ const Home = () => {
             color="text.secondary"
             sx={{ width: { sm: "80%", xs: "100%" } }}
           >
-            Amet diam eirmod takimata labore et kasd, sit magna duo dolor sit
-            lorem diam lorem, diam stet ipsum at nonumy sit diam at. Dolor est
-            lorem dolore sit ipsum consetetur.
+            De Plafon adalah supplier produk seperti Plafon PVC, Wallboard, dan
+            Vinyl yang berkualitas tinggi dan ramah lingkungan.
           </Typography>
           <Button variant="contained">ORDER NOW</Button>
         </Box>
@@ -80,7 +82,7 @@ const Home = () => {
             alignItems: { xs: "center" },
             mt: { xs: "56px", md: 0 },
             mb: { xs: 3, md: 0 },
-            py: { xs: 3, md: 0 },
+            pt: { xs: 3, md: 0 },
           }}
         >
           <Carousel
