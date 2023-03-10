@@ -60,13 +60,13 @@ const Services = () => {
                     alignItems: "center",
                     flexWrap: "column",
                     gap: { sm: 2, xs: 1 },
-                    width: { xs: "100%", sm: "250px" },
+                    width: "100%",
                     p: { md: 3, sm: 2, xs: 3 },
                   }}
                 >
                   <Icon
                     sx={{
-                      fontSize: { xs: "60px", sm: "96px" },
+                      fontSize: { xs: "48px", sm: "64px" },
                       color: "primary.main",
                     }}
                   />

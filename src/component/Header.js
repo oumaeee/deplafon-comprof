@@ -9,8 +9,9 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
+import { useInView } from "react-intersection-observer";
 
 const pages = ["Home", "Services", "Product", "Variant"];
 
@@ -25,13 +26,26 @@ function Header() {
     setAnchorElNav(null);
   };
 
+  const [ref, inView] = useInView({ rootMargin: "30px" });
+  const [isScrollDown, setIsScrollDown] = useState(false);
+  useEffect(() => {
+    if (inView == true) {
+      setIsScrollDown(true);
+    } else {
+      setIsScrollDown(false);
+    }
+  });
   return (
     <>
       <AppBar
         position="fixed"
         color="inherit"
-        elevation={0}
-        sx={{ bgcolor: "transparent" }}
+        elevation={isScrollDown ? 0 : 2}
+        sx={{
+          bgcolor: isScrollDown ? "transparent" : "grey.50",
+          top: 0,
+          transition: "all 0.3s ease",
+        }}
       >
         <Container>
           <Toolbar disableGutters>
@@ -132,6 +146,13 @@ function Header() {
           </Toolbar>
         </Container>
       </AppBar>
+      <Box
+        sx={{
+          bgcolor: "grey.300",
+          height: "1px",
+        }}
+        ref={ref}
+      />
       <Outlet />
     </>
   );

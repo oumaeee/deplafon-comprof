@@ -35,7 +35,8 @@ const Home = () => {
             height: { sm: "100%" },
             textAlign: { sm: "start", xs: "center" },
             alignItems: { sm: "start", xs: "center" },
-            py: { md: 0, xs: 5 },
+            pb: { md: 0, xs: 5 },
+            pt: { md: 0, md: 5, xs: 3 },
           }}
           display="flex"
           flexDirection="column"
