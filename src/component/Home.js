@@ -6,39 +6,65 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { Container } from "@mui/system";
-const carouselItems = [1, 2, 3, 5];
+const carouselItems = ["fruit", "city", "home", "food"];
 const Home = () => {
   return (
-    <Box position="relative" width="inherit" maxHeight="100vh" height="100vh">
+    <Box
+      position="relative"
+      width="inherit"
+      maxHeight="100vh"
+      sx={{ height: { md: "100vh", sm: "80vh" }, maxHeight: "1000px" }}
+    >
       <Container
         sx={{
           maxHeight: "inherit",
           width: "inherit",
           height: "inherit",
           display: "flex",
+          flexDirection: { xs: "column-reverse", sm: "row" },
           zIndex: "2",
           position: "relative",
         }}
       >
         <Box
-          width="40%"
+          sx={{
+            width: { sm: "40%", xs: "100%" },
+            height: { sm: "100%" },
+            textAlign: { sm: "start", xs: "center" },
+            alignItems: { sm: "start", xs: "center" },
+            pt: { md: 0, sm: 5 },
+          }}
           display="flex"
           flexDirection="column"
           justifyContent="center"
-          alignItems="start"
           gap={2}
-          sx={{ zIndex: 3 }}
+          zIndex={3}
         >
-          <Box bgcolor="common.white" p={1} pl={0} width="max-content">
-            <Typography variant="h3" component="h1">
+          <Paper
+            bgcolor="common.white"
+            sx={{
+              p: { sm: 1, xs: 3 },
+              pl: { sm: 0 },
+              width: "max-content",
+              boxShadow: { sm: 0, xs: 2 },
+            }}
+          >
+            <Typography
+              sx={{ typography: { lg: "h3", md: "h4", xs: "h5" } }}
+              component="h1"
+            >
               Solusi Plafon yang{" "}
               <span style={{ color: "#1519EA" }}>Inovatif</span>
               <br /> untuk{" "}
               <span style={{ color: "#1519EA" }}>Rumah Impian</span> Anda.
             </Typography>
-          </Box>
+          </Paper>
 
-          <Typography variant="body2" color="text.secondary" maxWidth="80%">
+          <Typography
+            variant="body2"
+            color="text.secondary"
+            sx={{ width: { sm: "80%", xs: "100%" } }}
+          >
             Amet diam eirmod takimata labore et kasd, sit magna duo dolor sit
             lorem diam lorem, diam stet ipsum at nonumy sit diam at. Dolor est
             lorem dolore sit ipsum consetetur.
@@ -46,18 +72,26 @@ const Home = () => {
           <Button variant="contained">ORDER NOW</Button>
         </Box>
         <Box
+          position="relative"
           sx={{
-            width: "60%",
-            position: "relative",
+            width: { sm: "60%", xs: "100%" },
+            display: { xs: "flex" },
+            justifyContent: { xs: "center" },
+            alignItems: { xs: "center" },
+            mt: { xs: "56px", md: 0 },
+            mb: { xs: 3, md: 0 },
+            py: { xs: 3, md: 0 },
           }}
         >
           <Carousel
             sx={{
-              width: "90%",
-              position: "absolute",
-              top: "50%",
-              left: "-10%",
-              transform: "translateY(-50%)",
+              width: { sm: "100%", xs: "80%" },
+              position: { sm: "absolute" },
+              top: { sm: "50%" },
+              left: { sm: "-10%" },
+              transform: {
+                sm: "translateY(-50%)",
+              },
               zIndex: 2,
             }}
           >
@@ -66,7 +100,7 @@ const Home = () => {
                 <Paper key={i} sx={{ overflow: "hidden" }}>
                   <Box
                     component="img"
-                    src="https://source.unsplash.com/1600x900/"
+                    src={`https://source.unsplash.com/random/1600x900/?${item}`}
                     width="100%"
                     display="block"
                   />
@@ -76,16 +110,17 @@ const Home = () => {
           </Carousel>
           <Paper
             sx={{
-              width: "50%",
+              width: { sm: "40%", xs: "30%" },
               overflow: "hidden",
               position: "absolute",
               right: 0,
-              bottom: "10%",
+              top: "50%",
+              transform: "translateY(70%)",
             }}
           >
             <Box
               component="img"
-              src="https://source.unsplash.com/1600x900/"
+              src="https://source.unsplash.com/random/1600x900"
               width="100%"
               display="block"
             />
@@ -96,9 +131,15 @@ const Home = () => {
         position="absolute"
         top="0"
         right="0"
-        bottom="0"
-        width="60%"
         bgcolor="grey.300"
+        sx={{
+          width: { sm: "60%", xs: "100%" },
+          height: {
+            sm: "100%",
+            // xs: "calc(56px + 32px + 30px + 16px + 32px + 80vw * 2 / 3)",
+            xs: "calc(166px +  80vw * 2 / 3)",
+          },
+        }}
       />
     </Box>
   );

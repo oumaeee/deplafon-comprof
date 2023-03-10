@@ -10,6 +10,7 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { useState } from "react";
+import { Outlet } from "react-router-dom";
 
 const pages = ["Home", "Services", "Product", "Variant"];
 
@@ -25,94 +26,49 @@ function Header() {
   };
 
   return (
-    <AppBar
-      position="fixed"
-      color="inherit"
-      elevation={0}
-      sx={{ bgcolor: "transparent" }}
-    >
-      <Container>
-        <Toolbar disableGutters>
-          <AdbIcon sx={{ display: "flex", mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: "flex",
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-              flexGrow: "1",
-            }}
-          >
-            LOGO
-          </Typography>
+    <>
+      <AppBar
+        position="fixed"
+        color="inherit"
+        elevation={0}
+        sx={{ bgcolor: "transparent" }}
+      >
+        <Container>
+          <Toolbar disableGutters>
+            <AdbIcon sx={{ display: "flex", mr: 1 }} />
+            <Typography
+              variant="h6"
+              noWrap
+              component="a"
+              href="/"
+              sx={{
+                mr: 2,
+                display: "flex",
+                fontFamily: "monospace",
+                fontWeight: 700,
+                letterSpacing: ".3rem",
+                color: "inherit",
+                textDecoration: "none",
+                flexGrow: "1",
+              }}
+            >
+              LOGO
+            </Typography>
 
-          <Box sx={{ flexGrow: 0, display: { xs: "none", sm: "flex" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{
-                  my: 2,
-                  mx: 1,
-                  display: "block",
-                  textTransform: "capitalize",
-                }}
-              >
-                {page}
-              </Button>
-            ))}
-            <Button
-              variant="contained"
-              size="small"
-              sx={{
-                my: 2,
-                mx: 1,
-                display: "block",
-              }}
-            >
-              ORDER NOW
-            </Button>
-          </Box>
-          <Box sx={{ flexGrow: 0, display: { xs: "flex", sm: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            >
+            <Box sx={{ flexGrow: 0, display: { xs: "none", sm: "flex" } }}>
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
+                <Button
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                  sx={{
+                    my: 2,
+                    mx: { md: 1, sm: 0 },
+                    display: "block",
+                    textTransform: "capitalize",
+                  }}
+                >
+                  {page}
+                </Button>
               ))}
               <Button
                 variant="contained"
@@ -125,11 +81,59 @@ function Header() {
               >
                 ORDER NOW
               </Button>
-            </Menu>
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+            </Box>
+            <Box sx={{ flexGrow: 0, display: { xs: "flex", sm: "none" } }}>
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                color="inherit"
+              >
+                <MenuIcon />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "left",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "left",
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                sx={{
+                  display: { xs: "block", md: "none" },
+                }}
+              >
+                {pages.map((page) => (
+                  <MenuItem key={page} onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">{page}</Typography>
+                  </MenuItem>
+                ))}
+                <Button
+                  variant="contained"
+                  size="small"
+                  sx={{
+                    my: 2,
+                    mx: 1,
+                    display: "block",
+                  }}
+                >
+                  ORDER NOW
+                </Button>
+              </Menu>
+            </Box>
+          </Toolbar>
+        </Container>
+      </AppBar>
+      <Outlet />
+    </>
   );
 }
 export default Header;

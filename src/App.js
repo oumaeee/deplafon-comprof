@@ -3,6 +3,7 @@ import Header from "./component/Header";
 import Box from "@mui/material/Box";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CompanyProfile from "./pages/CompanyProfile";
+import { Route, Routes } from "react-router-dom";
 
 const theme = createTheme({
   palette: {
@@ -17,8 +18,11 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Box className="App">
-        <Header />
-        <CompanyProfile />
+        <Routes>
+          <Route path="/" element={<Header />}>
+            <Route index element={<CompanyProfile />} />
+          </Route>
+        </Routes>
       </Box>
     </ThemeProvider>
   );
