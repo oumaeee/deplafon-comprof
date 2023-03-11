@@ -28,7 +28,7 @@ const cardContents = [
 ];
 const Services = () => {
   return (
-    <Box position="relative" width="inherit">
+    <Box position="relative" width="inherit" bgcolor="grey.300">
       <Container>
         <Stack
           width="100%"
@@ -38,10 +38,13 @@ const Services = () => {
           spacing={3}
           py={5}
         >
-          <Typography component="h2" variant="h6" color="text.secondary">
+          <Typography component="h2" variant="body1" color="text.secondary">
             Services
           </Typography>
-          <Typography component="h3" variant="h5">
+          <Typography
+            component="h3"
+            sx={{ typography: { sm: "h5", xs: "h6" } }}
+          >
             Layanan apa yang kami tawarkan?
           </Typography>
           <Stack
@@ -54,6 +57,7 @@ const Services = () => {
             {cardContents.map(({ Icon, title, text }) => {
               return (
                 <Paper
+                  key={text}
                   sx={{
                     display: "flex",
                     flexDirection: "column",
@@ -80,15 +84,6 @@ const Services = () => {
           </Stack>
         </Stack>
       </Container>
-      <Box
-        position="absolute"
-        top="0"
-        right="0"
-        bottom="0"
-        left="0"
-        bgcolor="grey.300"
-        zIndex="-1"
-      />
     </Box>
   );
 };

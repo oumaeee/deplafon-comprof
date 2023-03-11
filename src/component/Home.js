@@ -57,10 +57,9 @@ const Home = () => {
               sx={{ typography: { lg: "h3", md: "h4", xs: "h5" } }}
               component="h1"
             >
-              Solusi Plafon yang{" "}
-              <span style={{ color: "#1519EA" }}>Inovatif</span>
-              <br /> untuk{" "}
-              <span style={{ color: "#1519EA" }}>Rumah Impian</span> Anda.
+              Solusi Plafon yang <b style={{ color: "#1519EA" }}>Inovatif</b>
+              <br /> untuk <b style={{ color: "#1519EA" }}>Rumah Impian</b>{" "}
+              Anda.
             </Typography>
           </Paper>
 
