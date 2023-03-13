@@ -2,7 +2,6 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Carousel from "react-material-ui-carousel";
 import Paper from "@mui/material/Paper";
-// import gambar from "../assets/image/img65.jpg";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { Container } from "@mui/system";
@@ -15,7 +14,7 @@ const Home = () => {
       maxHeight="100vh"
       sx={{
         height: { md: "100vh", sm: "80vh" },
-        maxHeight: "1000px",
+        maxHeight: { lg: "800px", md: "600px", sm: "500px" },
       }}
     >
       <Container
@@ -36,7 +35,7 @@ const Home = () => {
             textAlign: { sm: "start", xs: "center" },
             alignItems: { sm: "start", xs: "center" },
             pb: { md: 0, xs: 5 },
-            pt: { md: 0, md: 5, xs: 3 },
+            pt: { md: 5, xs: 3 },
           }}
           display="flex"
           flexDirection="column"
@@ -96,6 +95,7 @@ const Home = () => {
               },
               zIndex: 2,
             }}
+            navButtonsAlwaysInvisible
           >
             {carouselItems.map((item, i) => {
               return (

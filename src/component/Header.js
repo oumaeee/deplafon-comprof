@@ -29,12 +29,12 @@ function Header() {
   const [ref, inView] = useInView({ rootMargin: "30px" });
   const [isScrollDown, setIsScrollDown] = useState(false);
   useEffect(() => {
-    if (inView == true) {
+    if (inView === true) {
       setIsScrollDown(true);
     } else {
       setIsScrollDown(false);
     }
-  });
+  }, [inView]);
   return (
     <>
       <AppBar

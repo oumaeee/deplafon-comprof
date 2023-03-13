@@ -29,14 +29,17 @@ const OptionStyle = () => {
             Plafon dengan gaya yang{" "}
             <b style={{ color: "#1519EA" }}>Stylish? </b>
           </Typography>
-          <Box position="relative">
-            <Box
-              width="35%"
-              textAlign="center"
-              position="absolute"
-              top={0}
-              left={0}
-            >
+          <Box
+            position="relative"
+            sx={{
+              "&::after": {
+                content: '""',
+                display: "table",
+                clear: "both",
+              },
+            }}
+          >
+            <Box width="35%" textAlign="center" mb={3}>
               <Box
                 component="img"
                 alt="Modern Plafon Image"
