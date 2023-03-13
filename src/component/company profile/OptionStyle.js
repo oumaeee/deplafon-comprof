@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import React from "react";
 import Stack from "@mui/system/Stack";
-import { elegant, modern, stylish } from "../assets/image/option style";
+import { elegant, modern, stylish } from "../../assets/image/option style";
 const OptionStyle = () => {
   return (
     <Box>

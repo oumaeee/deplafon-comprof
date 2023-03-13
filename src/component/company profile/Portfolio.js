@@ -1,13 +1,10 @@
 import React from "react";
-import "../assets/stylesheet/portfolio.css";
+import "../../assets/stylesheet/portfolio.css";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Slider from "react-slick";
-import IconButton from "@mui/material/IconButton";
-import ArrowBackIos from "@mui/icons-material/ArrowBackIos";
-import ArrowForwardIos from "@mui/icons-material/ArrowForwardIos";
 const portfolioItems = [
   "home",
   "celling",
@@ -77,7 +74,7 @@ const Portfolio = () => {
                   component="img"
                   src={`https://source.unsplash.com/random/1600x900/?${item}`}
                   display="block"
-                  sx={{ cursor: "pointer" }}
+                  sx={{ cursor: "pointer", boxShadow: 2, borderRadius: 2 }}
                 />
               );
             })}
